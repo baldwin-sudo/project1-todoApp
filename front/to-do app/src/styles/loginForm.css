@@ -1,0 +1,77 @@
+.container1{
+    background-color: #576CBC;
+    width:20rem;
+    height: 25rem;
+    border-radius: 1rem;
+    opacity: 70%;
+}
+h1{ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #0B2447;
+    margin-top:30px;
+    margin-bottom: 40px;
+}
+.form_box{
+    display: flex;
+    flex-direction: column;
+  
+}
+input{
+    
+    color:#0B2447;
+    background-color: #A5D7E8;
+    font-size: large;
+    margin:10px;
+    margin-left:4rem;
+    outline: none;
+    border: none;
+    width: 12rem;
+    border-radius: 2rem;
+    padding: 4px;
+    padding-left:10px;
+}
+input:focus{
+    border:solid;
+    border-width: 1px;
+    background-color: #576CBC;
+}
+input::placeholder{
+    color:#0B2447;
+
+}
+input:focus::placeholder{
+    color:#576CBC
+}
+.buttonCustom{
+    font-size: 16px;
+    margin-top: 4rem;
+    border-radius: 2rem;
+    padding: 5px;
+    width:9rem;
+    margin-left: 5px;
+    border:none;
+    background-color: #0B2447;
+    color:#A5D7E8;
+   
+}
+.buttonCustom:hover{
+    border:solid;
+    border-color: #0B2447;
+    transition: ease-in 0.3s;
+    color: #0B2447;
+    background-color: #A5D7E8;
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    
+}
+.error-message {
+    background-color: white;
+    
+    color: #ff0000; /* Red color for the text */
+    font-size: 14px;
+    font-weight: bolder;
+    margin-top: 20px; /* Add some spacing at the top */
+  }

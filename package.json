@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.1.0",
+    "axios": "^1.6.5",
+    "bootstrap": "^5.3.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "nodemon": "^3.0.2",
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.21.2",
+    "redux": "^5.0.1",
+    "redux-devtools-extension": "^2.13.9",
+    "reselect": "^5.1.0"
+  }
+}
