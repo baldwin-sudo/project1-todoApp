@@ -8,19 +8,17 @@ const TaskComponent = (props) => {
   const [editedTitle, setEditedTitle] = useState(props.title);
   const [editedBody, setEditedBody] = useState(props.body);
 
-  
-
   const handleSaveClick = async () => {
-    try{
-      const data ={title:editedTitle,body:editedBody}
-      const response = await axios.put(`http://localhost:3002/task/update/${props.userId}/${props.id}`,data)
-      console.log(response.data)
+    try {
+      const data = { title: editedTitle, body: editedBody };
+      const response = await axios.put(
+        `http://localhost:3002/task/update/${props.userId}/${props.id}`,
+        data
+      );
+      console.log(response.data);
       props.onEditSave();
       dispatch(updateTask({ task: response.data.task }));
-    }
-    catch(err){
-
-    }
+    } catch (err) {}
 
     setIsEditing(false);
     setIsModifying(false);
@@ -90,9 +88,13 @@ const TaskComponent = (props) => {
               placeholder="new body ..."
             />
             <div className="buttonsSave">
-            <button id="button_delete" onClick={handleSaveClick}>Save</button>
-            <button id="button_delete" onClick={handleCancelClick}>Cancel</button>
-          </div>
+              <button id="button_delete" onClick={handleSaveClick}>
+                Save
+              </button>
+              <button id="button_delete" onClick={handleCancelClick}>
+                Cancel
+              </button>
+            </div>
           </div>
         ) : (
           <>

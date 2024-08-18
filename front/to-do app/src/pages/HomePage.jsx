@@ -12,8 +12,8 @@ function HomePage() {
   const [newTask, setNewTask] = useState({ title: "", body: "" });
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [isAdding, setIsAdding] = useState(true);
-  const [onDelete ,setOndelete]=useState(true)
-  const[OnEdit,setOnEdit]=useState(true)
+  const [onDelete, setOndelete] = useState(true);
+  const [OnEdit, setOnEdit] = useState(true);
   const handleOnEditSave = () => setOnEdit((prevOnEdit) => !prevOnEdit);
 
   const handleDeletion = () => {
@@ -26,18 +26,18 @@ function HomePage() {
         const response = await axios.get(
           "http://localhost:3002/task/list/" + user.id
         );
-          console.log('api response :',response.data)
+        console.log("api response :", response.data);
         dispatch(setTasks({ tasksArr: response.data.tasks }));
       } catch (error) {
         console.error("Error fetching tasks:", error);
       }
     };
-  
+
     if (user) {
       fetchTasks();
     }
-  }, [user, onDelete,isConfirmed,OnEdit, dispatch]);
-  
+  }, [user, onDelete, isConfirmed, OnEdit, dispatch]);
+
   const addTask = () => {
     setIsConfirmed(false);
     setIsAdding(!isAdding);
@@ -49,9 +49,9 @@ function HomePage() {
         "http://localhost:3002/task/add/" + user.id,
         newTask
       );
-      console.log("new task :",newTask);
-      console.log('api responese',response.data)
-      dispatch(pushTask({task:response.data.task}));
+      console.log("new task :", newTask);
+      console.log("api responese", response.data);
+      dispatch(pushTask({ task: response.data.task }));
       setIsAdding(true);
       setIsConfirmed(true);
     } catch (err) {
@@ -127,7 +127,7 @@ function HomePage() {
                 <li key={index}>
                   <TaskComponent
                     userId={user.id}
-                    id={task.id }
+                    id={task.id}
                     title={task.title || "title"}
                     body={task.body || "title"}
                     index={index}
@@ -138,14 +138,12 @@ function HomePage() {
                 </li>
               ))
             ) : (
-              <p id="unavailable">No tasks available !    <span>  </span></p>
+              <p id="unavailable">
+                No tasks available ! <span> </span>
+              </p>
             )}
           </ul>
-          </div>
-
-     
-        
-       
+        </div>
       </div>
     </div>
   );

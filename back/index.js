@@ -1,11 +1,11 @@
-import express from 'express';
+import express from "express";
 import session from "express-session";
 
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import authRoutes from './routes/auth.js';
-import crudRoutes from './routes/task.js';
-import cors from'cors';
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import authRoutes from "./routes/auth.js";
+import crudRoutes from "./routes/task.js";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 dotenv.config(); // Load environment variables from the .env file
 
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   session({
-    secret: "your-secret-key", // Use a secure secret key
+    secret: "secret-key", // Use a secure secret key
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -27,23 +27,24 @@ app.use(
 );
 
 // Connection to database
-mongoose.connect(process.env.DATABASE_URL)
+mongoose
+  .connect(process.env.DATABASE_URL)
   .then(() => {
-    console.log('Database is connected ...');
+    console.log("Database is connected ...");
   })
-  .catch(err => {
-    console.log('Database failed to connect ...', err.name);
+  .catch((err) => {
+    console.log("Database failed to connect ...", err.name);
   });
 
 // Routes :
 
 // test
-app.get("/",(req,res) =>{
+app.get("/", (req, res) => {
   res.send("hello");
-})
-app.use("/auth",authRoutes);
+});
+app.use("/auth", authRoutes);
 
-app.use("/task",crudRoutes);
+app.use("/task", crudRoutes);
 // API server
 const PORT = process.env.PORT || 3001;
 

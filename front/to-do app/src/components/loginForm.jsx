@@ -3,11 +3,10 @@ import "../styles/loginForm.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {set}from "../../reduxStore/userSlice";
+import { set } from "../../reduxStore/userSlice";
 // Your code here
 
 function LoginForm() {
-  
   const initialLoginState = localStorage.getItem("isLogin") === "true";
   const [isLogin, setIsLogin] = useState(initialLoginState);
   const navigate = useNavigate();
@@ -24,11 +23,11 @@ function LoginForm() {
     email: !isLogin ? "" : email,
     password,
   };
-  const [err,setErr] = useState(null);
+  const [err, setErr] = useState(null);
 
-  const user =useSelector((state) =>state.user)
-  const dispatch =useDispatch();
-  
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -42,13 +41,13 @@ function LoginForm() {
           data
         );
       }
-      dispatch(set({user:response.data.user}))
-      
+      dispatch(set({ user: response.data.user }));
+
       console.log(response.data); // Handle the response as needed
       navigate("/home");
     } catch (error) {
       console.error("API request failed:", error);
-      setErr("username and password don't match !")
+      setErr("username and password don't match !");
     }
   };
   return (
@@ -87,9 +86,10 @@ function LoginForm() {
             {!isLogin ? "Sign up ?" : "Log in ?"}
           </button>
         </div>
-        <div className="error-message" role="alert" >{ !isLogin? err:""}</div>
+        <div className="error-message" role="alert">
+          {!isLogin ? err : ""}
+        </div>
       </form>
-     
     </div>
   );
 }
