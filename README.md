@@ -23,7 +23,7 @@ This project is a Todo application built with a React frontend, a Node.js backen
 1. **Clone the repository:**
 
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/baldwin-sudo/project1-todoApp.git
     cd project1-todoApp
     ```
 
